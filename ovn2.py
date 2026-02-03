@@ -11,9 +11,6 @@ mittenpunkten av triangeln (givet som 1
 
 def threePoints (p, q, r):
     # TODO se ifall alla punkter inte är på samma linje 
-    # TODO se PLottar upp triangeln 
-    # TODO Ger en punkt och two vektorer som genererar planet 
-    # TODO ger den normaliserade normalvektorn enligt formeln i uppgiften  
     try:
         # (a,b,c) och (d,e,f) == a/d = b/e = c/f sa ar den paralell 
         iterationObject = [p,q,r]
@@ -41,13 +38,17 @@ def threePoints (p, q, r):
         # i / iterationObject[n]   # p / q 
     
     #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
+
 def plotTriangle():
+    # TODO se PLottar upp triangeln 
     pass
 
 def generatePlane():
+    # TODO Ger en punkt och two vektorer som genererar planet 
     pass
 
 def normVector():
+    # TODO ger den normaliserade normalvektorn enligt formeln i uppgiften   
     pass
 
 
