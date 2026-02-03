@@ -6,3 +6,10 @@ L˚at P = (1, 1, 1), och f (n)(P ) = f (f (· · · f (P ))), d.v.s. f applicera
 g˚anger p˚a P. Plotta punkterna P, f (P ), f (f (P )), . . . , f (n)(P ) (i en 3D-
 plot), d˚
 ''' 
+
+def funktion(x):
+    n=(1,2,2)
+    y= x-2*((x*n)/(n**2))*n
+
+    n = (-1, 3, -1)
+    y= y-2*((y*n)/(n**2))*n
