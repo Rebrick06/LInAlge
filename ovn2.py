@@ -53,9 +53,15 @@ def threePoints (p, q, r):
     
     #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
 
-def plotTriangle():
-    # TODO se PLottar upp triangeln 
-    pass
+def plotTriangle(p,q,r):
+    p.append(p[0])
+    q.append(q[0])
+    r.append(r[0])
+    
+    fig=plt.figure()
+    ax=fig.add_subplot(projection="3d")
+    ax.plot3D(p,q,r,"-o")
+    plt.show()
 
 def generatePlane():
     # TODO Ger en punkt och two vektorer som genererar planet 
@@ -67,4 +73,5 @@ def normVector():
 
 
 
-threePoints([0,0,0],[2,1,3],[91,2,2]) 
+threePoints([1,2,3],[4,5,6],[1,2,0]) 
+plotTriangle([1,2,3],[4,5,6],[1,2,0])
