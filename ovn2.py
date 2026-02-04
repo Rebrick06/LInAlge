@@ -14,21 +14,21 @@ import numpy as np
 
 def threePoints (p, q, r):
     # TODO se ifall alla punkter inte är på samma linje 
-    try:
+    try:       
+        """ax = plt.figure().add_subplot(projection='3d')
+        plt.scatter(p,q,r)
+        ax.quiver(0,0,0,p[0],p[1],p[2],color="r",arrow_length_ratio=0.1)
+        ax.quiver(0,0,0,q[0],q[1],q[2],color="r",arrow_length_ratio=0.1)
+        ax.quiver(0,0,0,r[0],r[1],r[2],color="r",arrow_length_ratio=0.1)
+        
+        ax.set_xlim([0,5])
+        ax.set_ylim([0,5])
+        ax.set_zlim([0,5])
+        
+        plt.show()"""
+        
         # (a,b,c) och (d,e,f) == a/d = b/e = c/f sa ar den paralell 
         iterationObject = [p,q,r]
-        v1 = np.dot(p, q)
-        v2 = np.dot(p, r)
-
-        vp = np.dot(p[0:2],p[-1])
-        print(vp)
-        print(np.cross(p, q), "q")
-        print(np.cross(p, r), "r")  # -> 
-                                    #x = [1, 2, 3]
-                                    #y = [4, 5, 6]
-                                    #np.cross(x, y)
-                                    #array([-3,  6, -3]) 
-        
         n = 1
         diff = None
         for i in iterationObject: # [ [1,1,2], [1,2,3], [-1,2,-1] ]
@@ -46,16 +46,22 @@ def threePoints (p, q, r):
                 #print(diff)
             #print(i, iterationObject[n])
             n += 1
-            
+        
     except ValueError: 
         print("Error: a/d = b/e = c/f -> inget plan")
         # i / iterationObject[n]   # p / q 
     
     #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
 
-def plotTriangle():
-    # TODO se PLottar upp triangeln 
-    pass
+def plotTriangle(p,q,r):
+    p.append(p[0])
+    q.append(q[0])
+    r.append(r[0])
+    
+    fig=plt.figure()
+    ax=fig.add_subplot(projection="3d")
+    ax.plot3D(p,q,r,"-o")
+    plt.show()
 
 def generatePlane():
     # TODO Ger en punkt och two vektorer som genererar planet 
@@ -67,4 +73,5 @@ def normVector():
 
 
 
-threePoints([0,0,0],[2,1,3],[91,2,2]) 
+threePoints([1,2,3],[4,5,6],[1,2,0]) 
+plotTriangle([1,2,3],[4,5,6],[1,2,0])

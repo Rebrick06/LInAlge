@@ -16,40 +16,27 @@ import numpy as np
 def threePoints (p, q, r):
     # TODO se ifall alla punkter inte är på samma linje 
     try:
-        # (a,b,c) och (d,e,f) == a/d = b/e = c/f sa ar den paralell 
-        
 
-        vectorPQ = np.cross(p,q)
-        vectorPR = np.cross(p,r)
-        print(f'This is the crossVector {vectorPQ,vectorPR}')
+        vectorPQ = np.cross(p,q) # [1,2,3] och [4,5,6] --> [-3,6,-3] 
+        vectorPR = np.cross(p,r) # [4,5,6] och [1,2,0] --> [-12,6,3]
+        vectorQR = np.cross(q,r) # [4,5,6] och [1,2,0] --> [-12,6,3]
+        zeroVector = np.cross([0,0,0],[1,1,1])
+        print(zeroVector)
+        print(f'This is the crossVector {vectorPQ,vectorPR, vectorQR}')
 
-        '''        
-        n = 1
-        diff = None
-        for i in iterationObject: # [ [1,1,2], [1,2,3], [-1,2,-1] ]
-            # i = [1,1,2]
-            for j in range(len(i)): 
-                if n == len(iterationObject):
-                    n = 0
-                    if diff == iterationObject[n][j] / i[j]:
-                        diff = iterationObject[n][j] / i[j]
-                    else:
-                        raise ValueError   
-                else: 
-                    diff = i[j] / iterationObject[n][j]
-
-                #print(diff)
-            #print(i, iterationObject[n])
-            n += 1
-        '''
-    except ValueError: 
-        print("Error: a/d = b/e = c/f -> inget plan")
-        # i / iterationObject[n]   # p / q 
+        if vectorPQ == zeroVector or vectorPR == zeroVector or vectorQR == zeroVector:
+            raise ValueError
+        else: 
+            print(f'This is the crossVector {vectorPQ,vectorPR, vectorQR}')
+            return vectorPQ, vectorPR, vectorQR
+            
     
-    #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
-
+    except ValueError: 
+        print("Error: a/d = b/e = c/f -> inget plan") 
+    
 def plotTriangle():
     # TODO se PLottar upp triangeln 
+
     pass
 
 def generatePlane():
