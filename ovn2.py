@@ -46,7 +46,7 @@ def threePoints (p, q, r):
                 #print(diff)
             #print(i, iterationObject[n])
             n += 1
-            
+        
     except ValueError: 
         print("Error: a/d = b/e = c/f -> inget plan")
         # i / iterationObject[n]   # p / q 
