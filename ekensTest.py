@@ -16,11 +16,9 @@ import numpy as np
 def threePoints (p, q, r):
     # TODO se ifall alla punkter inte är på samma linje 
     try:
-        # (a,b,c) och (d,e,f) == a/d = b/e = c/f sa ar den paralell 
-        
 
-        vectorPQ = np.cross(p,q)
-        vectorPR = np.cross(p,r)
+        vectorPQ = np.cross(p,q) # [1,2,3] och [4,5,6] --> [-3,6,-3] 
+        vectorPR = np.cross(q,r) # [4,5,6] och [1,2,0] --> [-12,6,3]
         print(f'This is the crossVector {vectorPQ,vectorPR}')
 
         '''        
@@ -42,12 +40,10 @@ def threePoints (p, q, r):
             #print(i, iterationObject[n])
             n += 1
         '''
-    except ValueError: 
-        print("Error: a/d = b/e = c/f -> inget plan")
-        # i / iterationObject[n]   # p / q 
     
-    #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
-
+    except ValueError: 
+        print("Error: a/d = b/e = c/f -> inget plan") 
+    
 def plotTriangle():
     # TODO se PLottar upp triangeln 
     pass
