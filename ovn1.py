@@ -123,10 +123,10 @@ def f(P):
     return reflect(P, n2)
 
 for i in range(n):
-    E = f(P)
+    P = f(P)
     
 fig=plt.figure()
 ax=fig.add_subplot(projection="3d")    
-ax.plot3D(E[0],E[1],E[2], '-o')
+ax.plot3D(P[0],P[1],P[2], '-o')
 plt.show()
     
