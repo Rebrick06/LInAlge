@@ -18,34 +18,25 @@ def threePoints (p, q, r):
     try:
 
         vectorPQ = np.cross(p,q) # [1,2,3] och [4,5,6] --> [-3,6,-3] 
-        vectorPR = np.cross(q,r) # [4,5,6] och [1,2,0] --> [-12,6,3]
-        print(f'This is the crossVector {vectorPQ,vectorPR}')
+        vectorPR = np.cross(p,r) # [4,5,6] och [1,2,0] --> [-12,6,3]
+        vectorQR = np.cross(q,r) # [4,5,6] och [1,2,0] --> [-12,6,3]
+        zeroVector = np.cross([0,0,0],[1,1,1])
+        print(zeroVector)
+        print(f'This is the crossVector {vectorPQ,vectorPR, vectorQR}')
 
-        '''        
-        n = 1
-        diff = None
-        for i in iterationObject: # [ [1,1,2], [1,2,3], [-1,2,-1] ]
-            # i = [1,1,2]
-            for j in range(len(i)): 
-                if n == len(iterationObject):
-                    n = 0
-                    if diff == iterationObject[n][j] / i[j]:
-                        diff = iterationObject[n][j] / i[j]
-                    else:
-                        raise ValueError   
-                else: 
-                    diff = i[j] / iterationObject[n][j]
-
-                #print(diff)
-            #print(i, iterationObject[n])
-            n += 1
-        '''
+        if vectorPQ == zeroVector or vectorPR == zeroVector or vectorQR == zeroVector:
+            raise ValueError
+        else: 
+            print(f'This is the crossVector {vectorPQ,vectorPR, vectorQR}')
+            return vectorPQ, vectorPR, vectorQR
+            
     
     except ValueError: 
         print("Error: a/d = b/e = c/f -> inget plan") 
     
 def plotTriangle():
     # TODO se PLottar upp triangeln 
+
     pass
 
 def generatePlane():
