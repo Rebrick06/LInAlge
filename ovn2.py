@@ -101,7 +101,8 @@ def generatePlane(p,q,r):
     ax.set_ylabel("Y")
     ax.set_zlabel("Z")
     point = (p[0] + q[0] + r[0])*(1/3), (p[1] + q[1] + r[1])*(1/3), (p[2] + q[2] + r[2])*(1/3)
-    ax.plot3D(point[0], point[1], point[2], '-o')
+    #ax.plot3D(point[0], point[1], point[2], '-o')
+    ax.scatter(point[0], point[1], point[2], color='brown', s = 4)
     plt.show()
 
 
@@ -111,7 +112,7 @@ def normVector(p, q, r):
     
     fig=plt.figure()
     ax=fig.add_subplot(projection="3d")
-    ax.plot3D(point[0], point[1], point[2], '-o')
+    ax.plot3D(point[0], point[1], point[2], '-o', 1)
 
     plt.show()
 

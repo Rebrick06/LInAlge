@@ -16,7 +16,7 @@ n3=100
 x1 = np.array([1,2,2])
 x2 = np.array([-1,3,-1])
 P = np.array([1,1,1])
-E= None
+E = None
 
 def reflect(P, n):
     # y = x - 2 * ((x * n) / |n|^2) * n [2]
@@ -30,7 +30,7 @@ def f(P):
 def loop(n, P):
     for i in range(n):
         P = f(P)
-        ax.plot3D(P[0],P[1],P[2], '-o')
+        ax.plot3D(P[0], P[1], P[2], '-o')
     return P
     
 fig=plt.figure()
