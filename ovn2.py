@@ -8,7 +8,7 @@ inte sp¨anner upp ett plan).
 mittenpunkten av triangeln (givet som 1
 3 (P + Q + R)). 
 '''''
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -110,6 +110,6 @@ def normVector():
 
 
 
-#threePoints([1,2,3],[4,5,6],[1,2,0]) 
-plotTriangle([1,2,3],[4,5,6],[1,2,0])
-generatePlane([1,2,3],[4,5,6],[1,2,0])
+threePoints([1,2,3],[4,5,6],[1,2,0]) 
+#plotTriangle([1,2,3],[4,5,6],[1,2,0])
+#generatePlane([1,2,3],[4,5,6],[1,2,0])
