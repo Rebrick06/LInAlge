@@ -60,7 +60,7 @@ def plotTriangle(p,q,r):
     
     fig=plt.figure()
     ax=fig.add_subplot(projection="3d")
-    ax.plot3D(p,q,r,"-o")
+    ax.plot3D(p,q,r, '-o')
 
     plt.show()
 
@@ -88,11 +88,11 @@ def generatePlane(p,q,r):
     Y = p[1] + S*aq[1] + T*ar[1]
     Z = p[2] + S*aq[2] + T*ar[2]
 
-    ax.scatter(p[0], p[1], p[2], color='k', s=50) # Punkten # s=50 ???
+    ax.scatter(p[0], p[1], p[2], color='purple')
     # Vektorer #
-    ax.quiver(ap[0], ap[1], ap[2], aq[0], aq[1], aq[2], color='r', arrow_length_ratio=0.1)
-    ax.quiver(ap[0], ap[1], ap[2], ar[0], ar[1], ar[2], color='r', arrow_length_ratio=0.1)
-    ax.plot_surface(X, Y, Z, alpha=0.5, color='green') # Planet #
+    ax.quiver(ap[0], ap[1], ap[2], aq[0], aq[1], aq[2], color='red', arrow_length_ratio=0.1)
+    ax.quiver(ap[0], ap[1], ap[2], ar[0], ar[1], ar[2], color='blue', arrow_length_ratio=0.1)
+    ax.plot_surface(X, Y, Z, alpha=0.5, color='white') # Planet #
     
     #plt.title("3D Vector Plot")
     ax.set_xlabel("X")
