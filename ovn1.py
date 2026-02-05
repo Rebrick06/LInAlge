@@ -30,15 +30,13 @@ def f(P):
 def loop(n, P):
     for i in range(n):
         P = f(P)
+        ax.plot3D(P[0],P[1],P[2], '-o')
     return P
     
 fig=plt.figure()
 ax=fig.add_subplot(projection="3d")
-P1= loop(n1, P)    
-ax.plot3D(P1[0],P1[1],P1[2], '-o')
-P2= loop(n2, P)    
-ax.plot3D(P2[0],P2[1],P2[2], '-o')
-P3= loop(n3, P)    
-ax.plot3D(P3[0],P3[1],P3[2], '-o')
+loop(n1, P)    
+loop(n2, P)    
+loop(n3, P)    
 plt.show()
     
