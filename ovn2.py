@@ -61,17 +61,55 @@ def plotTriangle(p,q,r):
     fig=plt.figure()
     ax=fig.add_subplot(projection="3d")
     ax.plot3D(p,q,r,"-o")
+
     plt.show()
 
-def generatePlane():
+
+
+def generatePlane(p,q,r):
     # TODO Ger en punkt och two vektorer som genererar planet 
-    pass
+    ## Bygger 3d plan ##
+    fig=plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+
+    ## Matten bakom vektorerna och planet ##
+    ap = np.array(p)
+    aq = np.array([q[0]-p[0], q[1]-p[1], q[2]-p[2]])
+    len_aq = np.linalg.norm(aq) # Längd av aq för s
+    ar = np.array([r[0]-p[0], r[1]-p[1], r[2]-p[2]])
+    len_ar = np.linalg.norm(ar) # Längd av ar för t
+
+    extent = 1 * max(len_aq, len_ar) 
+    s = np.linspace(-extent/len_aq, extent/len_aq, 20)
+    t = np.linspace(-extent/len_ar, extent/len_ar, 20)
+    S, T = np.meshgrid(s, t)
+
+    X = p[0] + S*aq[0] + T*ar[0]
+    Y = p[1] + S*aq[1] + T*ar[1]
+    Z = p[2] + S*aq[2] + T*ar[2]
+
+    ax.scatter(p[0], p[1], p[2], color='k', s=50) # Punkten # s=50 ???
+    # Vektorer #
+    ax.quiver(ap[0], ap[1], ap[2], aq[0], aq[1], aq[2], color='r', arrow_length_ratio=0.1)
+    ax.quiver(ap[0], ap[1], ap[2], ar[0], ar[1], ar[2], color='r', arrow_length_ratio=0.1)
+    ax.plot_surface(X, Y, Z, alpha=0.5, color='green') # Planet #
+    
+    #plt.title("3D Vector Plot")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Z")
+
+    plt.show()
+
 
 def normVector():
     # TODO ger den normaliserade normalvektorn enligt formeln i uppgiften   
+    
+    
     pass
 
 
 
-threePoints([1,2,3],[4,5,6],[1,2,0]) 
+#threePoints([1,2,3],[4,5,6],[1,2,0]) 
 plotTriangle([1,2,3],[4,5,6],[1,2,0])
+generatePlane([1,2,3],[4,5,6],[1,2,0])
