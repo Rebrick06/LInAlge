@@ -54,6 +54,7 @@ def threePoints (p, q, r):
     #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
 
 def plotTriangle(p,q,r):
+    ## Append behövs för att det ska bli triangel, annars bara 2 linjer.
     p.append(p[0])
     q.append(q[0])
     r.append(r[0])
@@ -73,7 +74,7 @@ def generatePlane(p,q,r):
     ax = fig.add_subplot(111, projection='3d')
 
     ## Matten bakom vektorerna och planet ##
-    ap = np.array(p)
+    ap = np.array(p) 
     aq = np.array([q[0]-p[0], q[1]-p[1], q[2]-p[2]])
     len_aq = np.linalg.norm(aq) # Längd av aq för s
     ar = np.array([r[0]-p[0], r[1]-p[1], r[2]-p[2]])
@@ -88,7 +89,8 @@ def generatePlane(p,q,r):
     Y = p[1] + S*aq[1] + T*ar[1]
     Z = p[2] + S*aq[2] + T*ar[2]
 
-    ax.scatter(p[0], p[1], p[2], color='purple')
+    ax.scatter(p[0], p[1], p[2], color='purple') # Punkten #
+    
     # Vektorer #
     ax.quiver(ap[0], ap[1], ap[2], aq[0], aq[1], aq[2], color='red', arrow_length_ratio=0.1)
     ax.quiver(ap[0], ap[1], ap[2], ar[0], ar[1], ar[2], color='blue', arrow_length_ratio=0.1)
@@ -98,18 +100,24 @@ def generatePlane(p,q,r):
     ax.set_xlabel("X")
     ax.set_ylabel("Y")
     ax.set_zlabel("Z")
+    point = (p[0] + q[0] + r[0])*(1/3), (p[1] + q[1] + r[1])*(1/3), (p[2] + q[2] + r[2])*(1/3)
+    ax.plot3D(point[0], point[1], point[2], '-o')
+    plt.show()
+
+
+def normVector(p, q, r):
+    # TODO ger den normaliserade normalvektorn enligt formeln i uppgiften   
+    point = (p[0] + q[0] + r[0])*(1/3), (p[1] + q[1] + r[1])*(1/3), (p[2] + q[2] + r[2]) * (1/3)
+    
+    fig=plt.figure()
+    ax=fig.add_subplot(projection="3d")
+    ax.plot3D(point[0], point[1], point[2], '-o')
 
     plt.show()
 
 
-def normVector():
-    # TODO ger den normaliserade normalvektorn enligt formeln i uppgiften   
-    
-    
-    pass
-
-
 
 #threePoints([1,2,3],[4,5,6],[1,2,0]) 
-plotTriangle([1,2,3],[4,5,6],[1,2,0])
+#plotTriangle([1,2,3],[4,5,6],[1,2,0])
 generatePlane([1,2,3],[4,5,6],[1,2,0])
+#normVector([1,2,3],[4,5,6],[1,2,0])
