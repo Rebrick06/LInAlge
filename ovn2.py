@@ -8,7 +8,7 @@ inte sp¨anner upp ett plan).
 mittenpunkten av triangeln (givet som 1
 3 (P + Q + R)). 
 '''''
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -53,7 +53,7 @@ def threePoints (p, q, r):
     
     #pass  #p[j] == q[j] or q[j] == r[j] or p[j] == r[j
 
-def plotTriangle(p,q,r):
+def plotTriangle(p, q, r):
     ## Append behövs för att det ska bli triangel, annars bara 2 linjer.
     p.append(p[0])
     q.append(q[0])
@@ -61,16 +61,16 @@ def plotTriangle(p,q,r):
     
     fig=plt.figure()
     ax=fig.add_subplot(projection="3d")
-    ax.plot3D(p,q,r, '-o')
+    ax.plot3D(p, q, r, '-o')
 
     plt.show()
 
 
 
-def generatePlane(p,q,r):
+def generatePlane(p, q, r):
     # TODO Ger en punkt och two vektorer som genererar planet 
     ## Bygger 3d plan ##
-    fig=plt.figure()
+    fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
     ## Matten bakom vektorerna och planet ##
