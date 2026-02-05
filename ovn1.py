@@ -107,9 +107,11 @@ plt.show()'''
 import matplotlib.pyplot as plt
 import numpy as np
 
-n = 100
-n1 = np.array([1,2,2])
-n2 = np.array([-1,3,-1])
+n1 = 5
+n2=20
+n3=100
+x1 = np.array([1,2,2])
+x2 = np.array([-1,3,-1])
 P = np.array([1,1,1])
 E= None
 
@@ -119,14 +121,21 @@ def reflect(P, n):
 
     
 def f(P):
-    P = reflect(P, n1)
-    return reflect(P, n2)
+    P = reflect(P, x1)
+    return reflect(P, x2)
 
-for i in range(n):
-    P = f(P)
+def loop(n, P):
+    for i in range(n):
+        P = f(P)
+    return P
     
 fig=plt.figure()
-ax=fig.add_subplot(projection="3d")    
-ax.plot3D(P[0],P[1],P[2], '-o')
+ax=fig.add_subplot(projection="3d")
+P1= loop(n1, P)    
+ax.plot3D(P1[0],P1[1],P1[2], '-o')
+P2= loop(n2, P)    
+ax.plot3D(P2[0],P2[1],P2[2], '-o')
+P3= loop(n3, P)    
+ax.plot3D(P3[0],P3[1],P3[2], '-o')
 plt.show()
     
