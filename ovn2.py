@@ -44,11 +44,10 @@ def main(P, Q, R):
     ## Planet ritas ut ##
     ax.plot_surface(X_plane, Y_plane, Z_plane, alpha=0.5, color="green")
 
-
+    ## skapar pungt o vektor i mitten ##
     n_hat = n / np.linalg.norm(n)
     middle = ((P + Q + R) / 3)
     ax.quiver(middle[0], middle[1], middle[2], n_hat[0], n_hat[1], n_hat[2], color="#09babe")
-    # Dot in middle #
     ax.scatter(middle[0], middle[1], middle[2], color="#09babe")
 
     # Se vad är xyz på axlar
