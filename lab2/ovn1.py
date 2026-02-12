@@ -1,12 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 def abc(A, v0, n):
 
     vk0 = np.matmul(A, v0)
     plt.plot(vk0)
-    
+
     k = 1
     while k < (n):
         vk0 = np.matmul(A, vk0)
