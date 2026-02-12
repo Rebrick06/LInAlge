@@ -3,10 +3,14 @@ import numpy as np
 
 A = None  
 
-A1 = np.array([0, 0, 0, 0.16])
-A2 = np.array([0.85, -0.05, 0.05, 0.85])
-A3 = np.array([0.2, -0.26, 0.23, 0.22]) 
-A4 = np.array([-0.15, 0.26, 0.28, 0.24]) 
+A1 = np.array([[0, 0], 
+              [0, 0.16]])
+A2 = np.array([[0.85, -0.05], 
+              [0.05, 0.85]])
+A3 = np.array([[0.2, -0.26], 
+              [0.23, 0.22]]) 
+A4 = np.array([[-0.15, 0.26], 
+              [0.28, 0.24]]) 
 
 B = None 
 
@@ -39,6 +43,8 @@ def fractal(n):
 
         v_next = np.matmul(A, v_last) + B  
         v_last = v_next 
-        plt.scatter(v_next)
+        #print(v_next)
+        plt.scatter(v_next[0],v_next[1]) 
+    plt.show()  
 
-fractal(25)
+fractal(500)
