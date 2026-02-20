@@ -29,6 +29,6 @@ x_kurva = np.linspace(1, 3, 100)
 y_kurva = p3*x_kurva**3 + p2*x_kurva**2 + p1*x_kurva + p0
 
 plt.scatter(punkter[:, 0], punkter[:, 1], color='red', label='Datapunkter')
-plt.plot(x_kurva, y_kurva, label='Grad 3 polynom') # Kurvan
+plt.plot(x_kurva, y_kurva, label='Grad 3 polynom')
 plt.legend()
 plt.show()
